@@ -66,27 +66,20 @@ namespace TechJobsConsole
                         searchResults = JobData.FindAll();
                         PrintJobs(searchResults);
                     }
+                    // Fetch results for searchTerm
                     else
-                   /** {
-                        List<string> searchresults = JobData.FindByValue(searchTerm);
-                        Console.WriteLine("\n*** All  Values ***");
-                        foreach (string item in results)**/
-
                     {
                         List<string>  results = JobData.FindByValue(searchTerm);
-                        
-                            foreach(string item in results)
+                        Console.WriteLine("\n*** All " + searchTerm + " Values ***");
+                        foreach (string item in results)
                         {
                             Console.WriteLine(item);
                         }
-
-
+                        Console.WriteLine("\n*** All " + searchTerm + " Values ***");
                     }
-
                 }
             }
         }
-
         /*
          * Returns the key of the selected item from the choices Dictionary
          */
@@ -131,11 +124,8 @@ namespace TechJobsConsole
 
         private static void PrintJobs(List<Dictionary<string, string>> someJobs)
         {
-
             //Dictionary<string, string> jobs = new Dictionary<string, string>();
             foreach (Dictionary<string, string> item in someJobs)
-
-
             {
                 Console.WriteLine("*****");
                 foreach (KeyValuePair<string, string> choice in item)
@@ -143,23 +133,7 @@ namespace TechJobsConsole
                     Console.WriteLine(choice.Key + " : " + choice.Value);
                 }
                 Console.WriteLine("*****");
-
-
-
             }
-
-        }
-        private static void PrintJobsValue(List<Dictionary<string, string>> someJobs)
-        {
-
-            //Dictionary<string, string> jobs = new Dictionary<string, string>();
-            foreach (Dictionary<string, string> item in someJobs)
-
-
-                foreach (KeyValuePair<string, string> choice in item)
-                {
-                    Console.WriteLine(  choice.Value);
-                }
         }
     }
 }
