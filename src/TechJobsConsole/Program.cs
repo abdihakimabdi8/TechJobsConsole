@@ -63,19 +63,15 @@ namespace TechJobsConsole
                     // Fetch results
                     if (columnChoice.Equals("all"))
                     {
-                        searchResults = JobData.FindAll();
+                        searchResults = JobData.FindByValue(columnChoice, searchTerm);
                         PrintJobs(searchResults);
                     }
                     // Fetch results for searchTerm
                     else
                     {
-                        List<string>  results = JobData.FindByValue(searchTerm);
-                        Console.WriteLine("\n*** All " + searchTerm + " Values ***");
-                        foreach (string item in results)
-                        {
-                            Console.WriteLine(item);
-                        }
-                        Console.WriteLine("\n*** All " + searchTerm + " Values ***");
+                        searchResults = JobData.FindByColumnAndValue(columnChoice, searchTerm);
+                        PrintJobs(searchResults);
+
                     }
                 }
             }
